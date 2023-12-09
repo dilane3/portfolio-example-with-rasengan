@@ -81,3 +81,25 @@ footer p a {
   font-weight: 600;
   font-family: "Poppins";
 }
+
+@media screen and (max-width: 768px) {
+  .layout-container header {
+    padding: 0.2rem 2rem;
+  }
+
+  .layout-container header .nav button {
+    margin-left: 1rem;
+  }
+
+  .main {
+    padding: 1rem 2rem;
+  }
+
+  nav ul {
+    display: none !important;
+  }
+
+  footer {
+    padding: 1rem 2rem;
+  }
+}

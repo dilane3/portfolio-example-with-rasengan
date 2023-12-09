@@ -24,7 +24,7 @@ class Home extends PageComponent {
 
     return (
       <div className="home">
-        <div style={{ width: 600 }}>
+        <div>
           <h1 className="title">
             <div>Hey 👋🏻</div>
             <div>

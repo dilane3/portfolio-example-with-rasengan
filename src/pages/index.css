@@ -44,9 +44,15 @@ button {
   font-size: 4rem;
   font-weight: 800;
   margin: 10px 0;
+  line-height: 5rem;
+}
+
+.title div {
+  line-height: 5rem;
 }
 
 .description {
+  width: 100%;
   font-size: 1rem;
   font-family: "Poppins", sans-serif;
 }
@@ -94,4 +100,55 @@ img {
   width: 100%;
   height: auto;
   background-size: cover;
+}
+
+@media screen and (max-width: 1024px) {
+  .title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 10px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding-inline: 20px; */
+  }
+
+  .home div:last-child {
+    margin-top: 30px;
+  }
+
+  .title {
+    line-height: 3rem;
+  }
+
+  .title div {
+    line-height: 3rem;
+  }
+
+  .title, .description {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 10px 0;
+  }
+
+  .title div {
+    line-height: 2rem;
+  }
 }
