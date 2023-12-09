@@ -1,0 +1,108 @@
+{
+  "index.html": [
+  ],
+  "node_modules/@remix-run/router/dist/router.js": [
+  ],
+  "node_modules/object-assign/index.js": [
+  ],
+  "node_modules/prop-types/factoryWithThrowingShims.js": [
+  ],
+  "node_modules/prop-types/index.js": [
+  ],
+  "node_modules/prop-types/lib/ReactPropTypesSecret.js": [
+  ],
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/prop-types/index.js?commonjs-module": [
+  ],
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [
+  ],
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/react-dom/client.js?commonjs-exports": [
+  ],
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/react-dom/index.js?commonjs-module": [
+  ],
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/react/cjs/react-jsx-runtime.production.min.js?commonjs-exports": [
+  ],
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/react/cjs/react.production.min.js?commonjs-exports": [
+  ],
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/react/index.js?commonjs-module": [
+  ],
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/react/jsx-runtime.js?commonjs-module": [
+  ],
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/scheduler/cjs/scheduler.production.min.js?commonjs-exports": [
+  ],
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/scheduler/index.js?commonjs-module": [
+  ],
+  "node_modules/rasengan/\u0000commonjsHelpers.js": [
+  ],
+  "node_modules/rasengan/\u0000vite/modulepreload-polyfill.js": [
+  ],
+  "node_modules/rasengan/\u0000vite/preload-helper.js": [
+  ],
+  "node_modules/rasengan/lib/config/index.js": [
+  ],
+  "node_modules/rasengan/lib/core/components/index.js": [
+  ],
+  "node_modules/rasengan/lib/core/interfaces.js": [
+  ],
+  "node_modules/rasengan/lib/entries/entry-client.js": [
+  ],
+  "node_modules/rasengan/lib/routing/components/index.js": [
+  ],
+  "node_modules/rasengan/lib/routing/interfaces.js": [
+  ],
+  "node_modules/rasengan/lib/routing/utils/index.js": [
+  ],
+  "node_modules/react-dom/cjs/react-dom.production.min.js": [
+  ],
+  "node_modules/react-dom/client.js": [
+  ],
+  "node_modules/react-dom/index.js": [
+  ],
+  "node_modules/react-fast-compare/index.js": [
+  ],
+  "node_modules/react-helmet/es/Helmet.js": [
+  ],
+  "node_modules/react-router-dom/dist/index.js": [
+  ],
+  "node_modules/react-router/dist/index.js": [
+  ],
+  "node_modules/react-side-effect/lib/index.js": [
+  ],
+  "node_modules/react/cjs/react-jsx-runtime.production.min.js": [
+  ],
+  "node_modules/react/cjs/react.production.min.js": [
+  ],
+  "node_modules/react/index.js": [
+  ],
+  "node_modules/react/jsx-runtime.js": [
+  ],
+  "node_modules/scheduler/cjs/scheduler.production.min.js": [
+  ],
+  "node_modules/scheduler/index.js": [
+  ],
+  "rasengan.config.js": [
+  ],
+  "src/assets/pic3.jpg": [
+    "/assets/pic3-PwOP6Laa.js",
+    "/assets/pic3-57IdJILz.jpg"
+  ],
+  "src/main.tsx": [
+  ],
+  "src/pages/about/about.page.tsx": [
+  ],
+  "src/pages/app.layout.tsx": [
+  ],
+  "src/pages/app.router.ts": [
+  ],
+  "src/pages/contact/contact.page.tsx": [
+  ],
+  "src/pages/experiences/experiences.page.tsx": [
+  ],
+  "src/pages/home/home.page.tsx": [
+  ],
+  "src/pages/index.css": [
+  ],
+  "src/pages/layout.css": [
+  ],
+  "src/pages/projects/projects.page.tsx": [
+  ]
+}
