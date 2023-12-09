@@ -89,10 +89,11 @@ class Home extends PageComponent {
           /* @__PURE__ */ jsx(Link, { to: "/contact", children: /* @__PURE__ */ jsx("button", { className: "btn", children: "Contact me" }) })
         ] })
       ] }),
-      /* @__PURE__ */ jsx("div", { style: { width: 300, height: 420 }, children: /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsx("div", { style: { width: 320, height: "auto" }, children: /* @__PURE__ */ jsx(
         "img",
         {
           src: pic,
+          alt: "Dilane Kombou",
           style: {
             width: "100%",
             height: "100%",
