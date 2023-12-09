@@ -9,7 +9,7 @@
     "preview": "rasengan start"
   },
   "dependencies": {
-    "rasengan": "^1.0.0-beta-4",
+    "rasengan": "^1.0.0-beta-5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

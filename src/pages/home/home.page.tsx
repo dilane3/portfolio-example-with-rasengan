@@ -92,6 +92,7 @@ class Home extends PageComponent {
         <div style={{ width: 300, height: 420 }}>
           <img
             src={pic}
+            alt="Dilane Kombou"
             style={{
               width: "100%",
               height: "100%",
