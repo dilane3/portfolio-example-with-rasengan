@@ -84,7 +84,7 @@ footer p a {
 
 @media screen and (max-width: 768px) {
   .layout-container header {
-    padding: 0.2rem 2rem;
+    padding: 0.6rem 2rem;
   }
 
   .layout-container header .nav button {
@@ -101,5 +101,13 @@ footer p a {
 
   footer {
     padding: 1rem 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  footer {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
   }
 }

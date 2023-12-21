@@ -4,12 +4,12 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "rasengan dev",
+    "dev": "rasengan dev -p 3000",
     "build": "rasengan build",
     "preview": "rasengan start"
   },
   "dependencies": {
-    "rasengan": "^1.0.0-beta-6",
+    "rasengan": "^1.0.0-beta-9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
