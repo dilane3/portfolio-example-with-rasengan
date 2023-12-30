@@ -2,7 +2,7 @@ export default function Loader() {
   return (
     <div style={{
       position: "fixed",
-      backgroundColor: "black",
+      backgroundColor: "var(--primary)",
       top: 0,
       left: 0,
       bottom: 0,

@@ -1,8 +1,9 @@
-import { Link, PageComponent, defineRoutePage } from "rasengan";
+import { Link, LoaderOptions, PageComponent, defineRoutePage } from "rasengan";
 import { useState, useEffect } from "react";
+import Image from "@rasengan/image";
 
 class Home extends PageComponent {
-  render() {
+  render({ name }: { name: string }) {
     const [pic, setPic] = useState("");
 
     useEffect(() => {
@@ -10,7 +11,7 @@ class Home extends PageComponent {
         try {
           // Import the image using dynamic import
           // @ts-ignore
-          const imageModule = await import(`../../assets/pic3.jpg`);
+          const imageModule = await import(`./../../assets/pic7.png`);
           const imageUrl = imageModule.default;
 
           setPic(imageUrl);
@@ -19,8 +20,8 @@ class Home extends PageComponent {
         }
       };
 
-      loadImage();
-    }, []);
+      if (!pic) loadImage();
+    }, [pic]);
 
     return (
       <div className="home">
@@ -39,7 +40,7 @@ class Home extends PageComponent {
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                Dilane Kombou
+                {name}
               </span>
             </div>
           </h1>
@@ -89,19 +90,31 @@ class Home extends PageComponent {
           </div>
         </div>
 
-        <div style={{ width: 320, height: "auto" }}>
-          <img
-            src={pic}
-            alt="Dilane Kombou"
-            style={{
-              width: "100%",
-              height: "100%",
-              borderRadius: 10,
-            }}
-          />
-        </div>
+        <Image
+          // src={{
+          //   uri: "https://picsum.photos/400/600"
+          // }}
+          src={pic}
+          alt="Dilane Kombou 2"
+          width={320}
+          height={400}
+          style={{
+            borderRadius: 10,
+          }}
+          loading="lazy"
+          // mode="wave"
+          objectfit="cover"
+        />
       </div>
     );
+  }
+
+  async loader() {
+    return {
+      props: {
+        name: "Dilane3"
+      },
+    };
   }
 }
 

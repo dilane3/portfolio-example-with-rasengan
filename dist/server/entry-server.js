@@ -1,28 +1,36 @@
+var __defProp = Object.defineProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => {
+  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+  return value;
+};
 import { jsxs, jsx } from "react/jsx-runtime";
 import * as React from "react";
 import React__default, { useState, useEffect, Suspense } from "react";
 import ReactDOMServer from "react-dom/server";
 import { defineRoutePage, PageComponent, Link, defineRouteLayout, LayoutComponent, useLocation, Outlet, defineRouter, RouterComponent, defineConfig } from "rasengan";
+import Image from "@rasengan/image";
 import { useRouteError } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { StaticRouterProvider } from "react-router-dom/server.js";
 class Home extends PageComponent {
-  render() {
+  render({ name }) {
     const [pic, setPic] = useState("");
     useEffect(() => {
       const loadImage = async () => {
         try {
-          const imageModule = await import("./assets/pic3-9Ztzfmdq.js");
+          const imageModule = await import("./assets/pic7-NgQWNa3v.js");
           const imageUrl = imageModule.default;
           setPic(imageUrl);
         } catch (error) {
           console.error("Error loading image:", error);
         }
       };
-      loadImage();
-    }, []);
+      if (!pic)
+        loadImage();
+    }, [pic]);
     return /* @__PURE__ */ jsxs("div", { className: "home", children: [
-      /* @__PURE__ */ jsxs("div", { style: { width: 600 }, children: [
+      /* @__PURE__ */ jsxs("div", { children: [
         /* @__PURE__ */ jsxs("h1", { className: "title", children: [
           /* @__PURE__ */ jsx("div", { children: "Hey 👋🏻" }),
           /* @__PURE__ */ jsxs("div", { children: [
@@ -37,7 +45,7 @@ class Home extends PageComponent {
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent"
                 },
-                children: "Dilane Kombou"
+                children: name
               }
             )
           ] })
@@ -89,19 +97,28 @@ class Home extends PageComponent {
           /* @__PURE__ */ jsx(Link, { to: "/contact", children: /* @__PURE__ */ jsx("button", { className: "btn", children: "Contact me" }) })
         ] })
       ] }),
-      /* @__PURE__ */ jsx("div", { style: { width: 320, height: "auto" }, children: /* @__PURE__ */ jsx(
-        "img",
+      /* @__PURE__ */ jsx(
+        Image,
         {
           src: pic,
-          alt: "Dilane Kombou",
+          alt: "Dilane Kombou 2",
+          width: 320,
+          height: 400,
           style: {
-            width: "100%",
-            height: "100%",
             borderRadius: 10
-          }
+          },
+          loading: "lazy",
+          objectfit: "cover"
         }
-      ) })
+      )
     ] });
+  }
+  async loader() {
+    return {
+      props: {
+        name: "Dilane3"
+      }
+    };
   }
 }
 const Home$1 = defineRoutePage({
@@ -208,6 +225,11 @@ class Project extends PageComponent {
       /* @__PURE__ */ jsx("p", { className: "description", children: "I have worked on many projects, here are some of them." })
     ] });
   }
+  async loader(_options) {
+    return {
+      redirect: "/contact"
+    };
+  }
 }
 const Projects = defineRoutePage({
   path: "projects",
@@ -227,49 +249,37 @@ const Experiences = defineRoutePage({
   title: "Experiences",
   description: "Experiences page"
 })(Experience);
+function Loader() {
+  return /* @__PURE__ */ jsx("div", { style: {
+    position: "fixed",
+    backgroundColor: "var(--primary)",
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "white"
+  }, children: "Hi, it's D3..." });
+}
 class AppRouter extends RouterComponent {
 }
 const AppRouter$1 = defineRouter({
   imports: [],
   layout: AppLayout$1,
-  pages: [Home$1, Contact$1, About$1, Projects, Experiences]
+  pages: [Home$1, Contact$1, About$1, Projects, Experiences],
+  loaderComponent: Loader
 })(AppRouter);
-(function(thisArg, _arguments, P, generator) {
-  function adopt(value) {
-    return value instanceof P ? value : new P(function(resolve) {
-      resolve(value);
-    });
-  }
-  return new (P || (P = Promise))(function(resolve, reject) {
-    function fulfilled(value) {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-    function rejected(value) {
-      try {
-        step(generator["throw"](value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-    function step(result) {
-      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
-    }
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
-  });
-});
 const PageToRender = ({ page, data }) => {
   const Page = page.render;
   const props = data.props || {};
-  return jsxs(React.Fragment, { children: [jsxs(Helmet, { children: [jsx("title", { children: page.title }), jsx("meta", { name: "description", content: page.description })] }), jsx(Page, Object.assign({}, props))] });
+  return jsxs(React.Fragment, { children: [jsxs(Helmet, { children: [jsx("title", { children: page.title }), jsx("meta", { name: "description", content: page.description })] }), jsx(Page, { ...props })] });
 };
 let ErrorBoundary$1 = class ErrorBoundary extends React.Component {
   constructor() {
     super(...arguments);
-    this.state = { hasError: false, error: null, info: null };
+    __publicField(this, "state", { hasError: false, error: null, info: null });
   }
   componentDidCatch(error, info) {
     this.setState({ hasError: true, error, info });
@@ -282,7 +292,7 @@ let ErrorBoundary$1 = class ErrorBoundary extends React.Component {
     return this.props.children;
   }
 };
-const ErrorFallbackComponent = ({ error, info }) => {
+const ErrorFallbackComponent = ({}) => {
   return jsx("div", { children: "Something went wrong!" });
 };
 function ErrorBoundary2() {
@@ -290,15 +300,15 @@ function ErrorBoundary2() {
   console.error(error);
   return jsx("div", { children: "Dang!" });
 }
-const ServerComponent = ({ page }) => {
+const ServerComponent = ({ page, loader }) => {
   const data = {
     props: {}
   };
-  return jsx(Suspense, { fallback: jsx("div", { children: "Loading..." }), children: jsx(PageToRender, { page, data }) });
+  return jsx(Suspense, { fallback: loader, children: jsx(PageToRender, { page, data }) });
 };
 const generateStaticRoutes = (router) => {
   const routes = [];
-  const layout = new router.layout();
+  const layout = router.layout;
   const LayoutToRender = layout.render;
   const route = {
     path: layout.path,
@@ -306,39 +316,56 @@ const generateStaticRoutes = (router) => {
     element: jsx(LayoutToRender, {}),
     children: []
   };
-  const pages = router.pages.map((pageClass) => {
-    const pageComponent = new pageClass();
-    const path = pageComponent.path === "/" ? layout.path : pageComponent.path;
+  const pages = router.pages.map((page) => {
+    const path = page.path === "/" ? layout.path : page.path;
     return {
       path,
-      loader({ params, request }) {
-        return pageComponent.loader({ params, request });
+      async loader({ params, request }) {
+        const response = await page.loader({ params, request });
+        if (response.redirect) {
+          const formData = new FormData();
+          formData.append("redirect", response.redirect);
+          return new Response(formData, {
+            status: 302,
+            headers: {
+              Location: response.redirect
+            }
+          });
+        }
+        return response;
       },
       Component() {
-        return jsx(ServerComponent, { page: pageComponent });
-      }
+        return jsx(ServerComponent, { page, loader: router.loaderComponent });
+      },
+      elementError: jsx(ErrorBoundary2, {})
     };
   });
   pages.forEach((page) => {
     route.children.push(page);
   });
   routes.push(route);
-  for (const BesideRouter of router.routers) {
-    const besideRouter = new BesideRouter();
+  for (const besideRouter of router.routers) {
     const besidesRoutes = generateStaticRoutes(besideRouter);
     routes.push(...besidesRoutes);
   }
   return routes;
 };
 const config = defineConfig({
-  reactStrictMode: true
+  reactStrictMode: true,
+  // Defining the server port
+  server: {
+    development: {
+      port: 3e3
+    }
+  }
 });
 function render(router, context) {
   const html = ReactDOMServer.renderToString(config.reactStrictMode ? jsx(React__default.StrictMode, { children: jsx(ErrorBoundary$1, { children: jsx(StaticRouterProvider, { router, context }) }) }) : jsx(ErrorBoundary$1, { children: jsx(StaticRouterProvider, { router, context }) }));
   return { html };
 }
-const staticRoutes = generateStaticRoutes(new AppRouter$1());
+const staticRoutes = generateStaticRoutes(AppRouter$1);
 export {
   render,
   staticRoutes
 };
+//# sourceMappingURL=entry-server.js.map

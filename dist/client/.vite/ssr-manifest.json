@@ -1,6 +1,12 @@
 {
   "index.html": [
   ],
+  "node_modules/@rasengan/image/lib/components/image.js": [
+  ],
+  "node_modules/@rasengan/image/lib/components/index.js": [
+  ],
+  "node_modules/@rasengan/image/lib/styles/index.css": [
+  ],
   "node_modules/@remix-run/router/dist/router.js": [
   ],
   "node_modules/object-assign/index.js": [
@@ -11,25 +17,25 @@
   ],
   "node_modules/prop-types/lib/ReactPropTypesSecret.js": [
   ],
-  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/prop-types/index.js?commonjs-module": [
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan/projects/portfolio/node_modules/prop-types/index.js?commonjs-module": [
   ],
-  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan/projects/portfolio/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [
   ],
-  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/react-dom/client.js?commonjs-exports": [
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan/projects/portfolio/node_modules/react-dom/client.js?commonjs-exports": [
   ],
-  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/react-dom/index.js?commonjs-module": [
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan/projects/portfolio/node_modules/react-dom/index.js?commonjs-module": [
   ],
-  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/react/cjs/react-jsx-runtime.production.min.js?commonjs-exports": [
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan/projects/portfolio/node_modules/react/cjs/react-jsx-runtime.production.min.js?commonjs-exports": [
   ],
-  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/react/cjs/react.production.min.js?commonjs-exports": [
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan/projects/portfolio/node_modules/react/cjs/react.production.min.js?commonjs-exports": [
   ],
-  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/react/index.js?commonjs-module": [
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan/projects/portfolio/node_modules/react/index.js?commonjs-module": [
   ],
-  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/react/jsx-runtime.js?commonjs-module": [
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan/projects/portfolio/node_modules/react/jsx-runtime.js?commonjs-module": [
   ],
-  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/scheduler/cjs/scheduler.production.min.js?commonjs-exports": [
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan/projects/portfolio/node_modules/scheduler/cjs/scheduler.production.min.js?commonjs-exports": [
   ],
-  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan - React Framework/test/portfolio/node_modules/scheduler/index.js?commonjs-module": [
+  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan/projects/portfolio/node_modules/scheduler/index.js?commonjs-module": [
   ],
   "node_modules/rasengan/\u0000commonjsHelpers.js": [
   ],
@@ -81,9 +87,9 @@
   ],
   "rasengan.config.js": [
   ],
-  "src/assets/pic3.jpg": [
-    "/assets/pic3-PwOP6Laa.js",
-    "/assets/pic3-57IdJILz.jpg"
+  "src/assets/pic7.png": [
+    "/assets/pic7-pE2sUCgy.js",
+    "/assets/pic7-AhvDyqLx.png"
   ],
   "src/main.tsx": [
   ],
@@ -102,6 +108,8 @@
   "src/pages/index.css": [
   ],
   "src/pages/layout.css": [
+  ],
+  "src/pages/loader.tsx": [
   ],
   "src/pages/projects/projects.page.tsx": [
   ]
