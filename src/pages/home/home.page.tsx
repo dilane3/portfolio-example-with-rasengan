@@ -10,7 +10,7 @@ class Home extends PageComponent {
         try {
           // Import the image using dynamic import
           // @ts-ignore
-          const imageModule = await import(`./../../assets/pic7.png`);
+          const imageModule = await import(`./../../assets/pic2.jpg`);
           const imageUrl = imageModule.default;
 
           setPic(imageUrl);
