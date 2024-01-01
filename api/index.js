@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path, { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { createStaticHandler, createStaticRouter, } from "react-router-dom/server";
+import { createStaticHandler, createStaticRouter, } from "react-router-dom/server.js";
 // @ts-ignore
 import { createFetchRequest } from "rasengan";
 const __filename = fileURLToPath(import.meta.url);
