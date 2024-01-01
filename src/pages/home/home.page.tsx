@@ -4,7 +4,6 @@ import Image from "@rasenganjs/image";
 class Home extends PageComponent {
   render() {
     const [pic, setPic] = useState("");
-    const [count, setCount] = useState(0);
 
     useEffect(() => {
       const loadImage = async () => {
@@ -40,7 +39,7 @@ class Home extends PageComponent {
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                Dilane Kombou {count}
+                Dilane Kombou
               </span>
             </div>
           </h1>
