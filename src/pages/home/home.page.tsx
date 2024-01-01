@@ -1,20 +1,10 @@
 import { Link, PageComponent, defineRoutePage } from "rasengan";
 import { useState, useEffect } from "react";
 import Image from "@rasenganjs/image";
-import { useInterval } from "@rasenganjs/hooks";
-
 class Home extends PageComponent {
   render() {
     const [pic, setPic] = useState("");
     const [count, setCount] = useState(0);
-
-    // Use interval for a timer
-    useInterval(
-      () => {
-        setCount((prev) => prev + 1);
-      },
-      1000
-    );
 
     useEffect(() => {
       const loadImage = async () => {
