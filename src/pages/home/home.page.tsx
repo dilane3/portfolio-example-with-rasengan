@@ -1,10 +1,20 @@
-import { Link, LoaderOptions, PageComponent, defineRoutePage } from "rasengan";
+import { Link, PageComponent, defineRoutePage } from "rasengan";
 import { useState, useEffect } from "react";
-import Image from "@rasengan/image";
+import Image from "@rasenganjs/image";
+import { useInterval } from "@rasenganjs/hooks";
 
 class Home extends PageComponent {
-  render({ name }: { name: string }) {
+  render() {
     const [pic, setPic] = useState("");
+    const [count, setCount] = useState(0);
+
+    // Use interval for a timer
+    useInterval(
+      () => {
+        setCount((prev) => prev + 1);
+      },
+      1000
+    );
 
     useEffect(() => {
       const loadImage = async () => {
@@ -40,7 +50,7 @@ class Home extends PageComponent {
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                {name}
+                Dilane Kombou {count}
               </span>
             </div>
           </h1>
@@ -102,8 +112,9 @@ class Home extends PageComponent {
             borderRadius: 10,
           }}
           loading="lazy"
-          // mode="wave"
+          mode="wave"
           objectfit="cover"
+          className=""
         />
       </div>
     );
@@ -112,7 +123,7 @@ class Home extends PageComponent {
   async loader() {
     return {
       props: {
-        name: "Dilane3"
+        name: "Dilane3",
       },
     };
   }

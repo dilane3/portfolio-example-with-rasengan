@@ -7,6 +7,10 @@ export default defineConfig({
   server: {
     development: {
       port: 3000
+    },
+
+    production: {
+      hosting: "vercel"
     }
   }
 });

@@ -81,7 +81,7 @@ class AppLayout extends LayoutComponent {
           <p>Copyright &copy; 2023 All right reserved</p>
 
           <p>
-            Powered by <a href="https://rasengan.dev">Rasengan.js</a>
+            Powered by <a href="https://rasengan.org">Rasengan.js</a>
           </p>
         </footer>
       </section>

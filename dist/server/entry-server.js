@@ -6,16 +6,24 @@ var __publicField = (obj, key, value) => {
 };
 import { jsxs, jsx } from "react/jsx-runtime";
 import * as React from "react";
-import React__default, { useState, useEffect, Suspense } from "react";
+import React__default, { useState, useEffect } from "react";
 import ReactDOMServer from "react-dom/server";
 import { defineRoutePage, PageComponent, Link, defineRouteLayout, LayoutComponent, useLocation, Outlet, defineRouter, RouterComponent, defineConfig } from "rasengan";
-import Image from "@rasengan/image";
+import Image from "@rasenganjs/image";
+import { useInterval } from "@rasenganjs/hooks";
 import { useRouteError } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { StaticRouterProvider } from "react-router-dom/server.js";
 class Home extends PageComponent {
-  render({ name }) {
+  render() {
     const [pic, setPic] = useState("");
+    const [count, setCount] = useState(0);
+    useInterval(
+      () => {
+        setCount((prev) => prev + 1);
+      },
+      1e3
+    );
     useEffect(() => {
       const loadImage = async () => {
         try {
@@ -36,7 +44,7 @@ class Home extends PageComponent {
           /* @__PURE__ */ jsxs("div", { children: [
             "I'm",
             " ",
-            /* @__PURE__ */ jsx(
+            /* @__PURE__ */ jsxs(
               "span",
               {
                 style: {
@@ -45,7 +53,10 @@ class Home extends PageComponent {
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent"
                 },
-                children: name
+                children: [
+                  "Dilane Kombou ",
+                  count
+                ]
               }
             )
           ] })
@@ -108,7 +119,9 @@ class Home extends PageComponent {
             borderRadius: 10
           },
           loading: "lazy",
-          objectfit: "cover"
+          mode: "wave",
+          objectfit: "cover",
+          className: ""
         }
       )
     ] });
@@ -178,7 +191,7 @@ class AppLayout extends LayoutComponent {
         /* @__PURE__ */ jsx("p", { children: "Copyright © 2023 All right reserved" }),
         /* @__PURE__ */ jsxs("p", { children: [
           "Powered by ",
-          /* @__PURE__ */ jsx("a", { href: "https://rasengan.dev", children: "Rasengan.js" })
+          /* @__PURE__ */ jsx("a", { href: "https://rasengan.org", children: "Rasengan.js" })
         ] })
       ] })
     ] });
@@ -224,11 +237,6 @@ class Project extends PageComponent {
       /* @__PURE__ */ jsx("h1", { className: "title", children: "Project" }),
       /* @__PURE__ */ jsx("p", { className: "description", children: "I have worked on many projects, here are some of them." })
     ] });
-  }
-  async loader(_options) {
-    return {
-      redirect: "/contact"
-    };
   }
 }
 const Projects = defineRoutePage({
@@ -300,11 +308,11 @@ function ErrorBoundary2() {
   console.error(error);
   return jsx("div", { children: "Dang!" });
 }
-const ServerComponent = ({ page, loader }) => {
+const ServerComponent = ({ page }) => {
   const data = {
     props: {}
   };
-  return jsx(Suspense, { fallback: loader, children: jsx(PageToRender, { page, data }) });
+  return jsx(PageToRender, { page, data });
 };
 const generateStaticRoutes = (router) => {
   const routes = [];
@@ -335,7 +343,7 @@ const generateStaticRoutes = (router) => {
         return response;
       },
       Component() {
-        return jsx(ServerComponent, { page, loader: router.loaderComponent });
+        return jsx(ServerComponent, { page });
       },
       elementError: jsx(ErrorBoundary2, {})
     };
@@ -356,6 +364,9 @@ const config = defineConfig({
   server: {
     development: {
       port: 3e3
+    },
+    production: {
+      hosting: "vercel"
     }
   }
 });

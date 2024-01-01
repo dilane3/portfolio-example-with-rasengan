@@ -26,12 +26,6 @@ class Project extends PageComponent {
       </div>
     );
   }
-
- async loader(_options: LoaderOptions) {
-   return {
-    redirect: '/contact',
-   }
- }
 }
 
 export default defineRoutePage({

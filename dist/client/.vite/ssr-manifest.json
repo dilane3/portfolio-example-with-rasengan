@@ -1,11 +1,13 @@
 {
   "index.html": [
   ],
-  "node_modules/@rasengan/image/lib/components/image.js": [
+  "node_modules/@rasenganjs/hooks/lib/hooks/useInterval.js": [
   ],
-  "node_modules/@rasengan/image/lib/components/index.js": [
+  "node_modules/@rasenganjs/image/lib/components/image.js": [
   ],
-  "node_modules/@rasengan/image/lib/styles/index.css": [
+  "node_modules/@rasenganjs/image/lib/components/index.js": [
+  ],
+  "node_modules/@rasenganjs/image/lib/styles/index.css": [
   ],
   "node_modules/@remix-run/router/dist/router.js": [
   ],
