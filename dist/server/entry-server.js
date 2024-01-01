@@ -10,7 +10,6 @@ import React__default, { useState, useEffect } from "react";
 import ReactDOMServer from "react-dom/server";
 import { defineRoutePage, PageComponent, Link, defineRouteLayout, LayoutComponent, useLocation, Outlet, defineRouter, RouterComponent, defineConfig } from "rasengan";
 import Image from "@rasenganjs/image";
-import { useInterval } from "@rasenganjs/hooks";
 import { useRouteError } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { StaticRouterProvider } from "react-router-dom/server.js";
@@ -18,12 +17,6 @@ class Home extends PageComponent {
   render() {
     const [pic, setPic] = useState("");
     const [count, setCount] = useState(0);
-    useInterval(
-      () => {
-        setCount((prev) => prev + 1);
-      },
-      1e3
-    );
     useEffect(() => {
       const loadImage = async () => {
         try {
