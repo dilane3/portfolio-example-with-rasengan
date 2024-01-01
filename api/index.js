@@ -11,6 +11,7 @@ export default async function handler(req, res) {
     try {
         // Get URL
         const url = req.url;
+        const host = req.headers.host;
         // Get app path
         const appPath = join(__dirname, "..");
         // ! Favicon Fix
@@ -53,7 +54,7 @@ export default async function handler(req, res) {
         // Create static handler
         let handler = createStaticHandler(staticRoutes);
         // Create fetch request for static routing
-        let fetchRequest = createFetchRequest(req);
+        let fetchRequest = createFetchRequest(req, host);
         let context = await handler.query(fetchRequest);
         // Handle redirects
         const status = context.status;
