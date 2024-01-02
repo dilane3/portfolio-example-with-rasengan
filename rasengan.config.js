@@ -10,7 +10,7 @@ export default defineConfig({
     },
 
     production: {
-      hosting: "custom"
+      hosting: "vercel"
     }
   }
 });
