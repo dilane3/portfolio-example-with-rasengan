@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@rasenganjs/hooks": "1.0.0",
-    "@rasenganjs/image": "file:../../packages/@rasengan/image/rasenganjs-image-1.0.0.tgz",
-    "rasengan": "file:../../packages/rasengan/rasengan-1.0.0-beta.3.tgz",
+    "@rasenganjs/image": "1.0.0",
+    "rasengan": "1.0.0.beta.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
