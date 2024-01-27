@@ -4,23 +4,31 @@ var __publicField = (obj, key, value) => {
   __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
   return value;
 };
-import { jsxs, jsx } from "react/jsx-runtime";
+import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import * as React from "react";
 import React__default, { useState, useEffect } from "react";
 import ReactDOMServer from "react-dom/server";
-import { defineRoutePage, PageComponent, Link, defineRouteLayout, LayoutComponent, useLocation, Outlet, defineRouter, RouterComponent, defineConfig } from "rasengan";
+import { defineRoutePage, PageComponent, Link, defineRouteLayout, LayoutComponent, useLocation, Outlet, useNavigate, defineRouter, RouterComponent, defineConfig } from "rasengan";
 import Image from "@rasenganjs/image";
+import { useInterval } from "@rasenganjs/hooks";
 import { useRouteError } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { StaticRouterProvider } from "react-router-dom/server.js";
 class Home extends PageComponent {
-  render() {
+  render({ name }) {
     const [pic, setPic] = useState("");
     const [count, setCount] = useState(0);
+    useInterval(
+      () => {
+        setCount((prev) => prev + 1);
+      },
+      1e3,
+      [count]
+    );
     useEffect(() => {
       const loadImage = async () => {
         try {
-          const imageModule = await import("./assets/pic7-NgQWNa3v.js");
+          const imageModule = await import("./assets/pic2-GzdhJ58p.js");
           const imageUrl = imageModule.default;
           setPic(imageUrl);
         } catch (error) {
@@ -37,7 +45,7 @@ class Home extends PageComponent {
           /* @__PURE__ */ jsxs("div", { children: [
             "I'm",
             " ",
-            /* @__PURE__ */ jsxs(
+            /* @__PURE__ */ jsx(
               "span",
               {
                 style: {
@@ -46,10 +54,7 @@ class Home extends PageComponent {
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent"
                 },
-                children: [
-                  "Dilane Kombou ",
-                  count
-                ]
+                children: name
               }
             )
           ] })
@@ -122,7 +127,7 @@ class Home extends PageComponent {
   async loader() {
     return {
       props: {
-        name: "Dilane3"
+        name: "Dilane pablo"
       }
     };
   }
@@ -218,6 +223,11 @@ class About extends PageComponent {
       ] })
     ] });
   }
+  async loader() {
+    return {
+      redirect: "/projects"
+    };
+  }
 }
 const About$1 = defineRoutePage({
   path: "about",
@@ -264,13 +274,46 @@ function Loader() {
     color: "white"
   }, children: "Hi, it's D3..." });
 }
+const notfoundImg = "/assets/notpagefound-zvwRbyPd.png";
+function NotFoundPage() {
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+  return /* @__PURE__ */ jsxs(
+    "section",
+    {
+      style: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "calc(100vh - 64px)"
+      },
+      children: [
+        /* @__PURE__ */ jsx(
+          Image,
+          {
+            src: notfoundImg,
+            alt: "not found",
+            width: 300,
+            height: 300
+          }
+        ),
+        /* @__PURE__ */ jsx("p", { className: "notfound", children: "Page not found" }),
+        /* @__PURE__ */ jsx("button", { className: "btn-go-back", onClick: handleGoBack, children: "Go back" })
+      ]
+    }
+  );
+}
 class AppRouter extends RouterComponent {
 }
 const AppRouter$1 = defineRouter({
   imports: [],
   layout: AppLayout$1,
   pages: [Home$1, Contact$1, About$1, Projects, Experiences],
-  loaderComponent: Loader
+  loaderComponent: Loader,
+  notFoundComponent: NotFoundPage
 })(AppRouter);
 const PageToRender = ({ page, data }) => {
   const Page = page.render;
@@ -293,8 +336,21 @@ let ErrorBoundary$1 = class ErrorBoundary extends React.Component {
     return this.props.children;
   }
 };
-const ErrorFallbackComponent = ({}) => {
-  return jsx("div", { children: "Something went wrong!" });
+const ErrorFallbackComponent = ({ error, info }) => {
+  console.log({ error, info });
+  return jsx("div", { style: {
+    width: "calc(100% - 80px)",
+    height: "calc(100vh - 80px)",
+    padding: "40px",
+    backgroundColor: "#fff"
+  }, children: jsxs("div", { children: [jsx("h1", { style: { fontSize: "2rem" }, children: "Something went wrong" }), jsx("p", { children: error.toString() }), jsx("div", { style: {
+    width: "calc(100% - 40px)",
+    height: "auto",
+    borderRadius: 10,
+    padding: "20px",
+    marginTop: "10px",
+    backgroundColor: "#f0f0f0"
+  }, children: jsx("p", { children: info.componentStack }) })] }) });
 };
 function ErrorBoundary2() {
   let error = useRouteError();
@@ -307,7 +363,10 @@ const ServerComponent = ({ page }) => {
   };
   return jsx(PageToRender, { page, data });
 };
-const generateStaticRoutes = (router) => {
+const NotFoundComponentContainer = ({ content }) => {
+  return jsx(Fragment, { children: content({}) });
+};
+const generateStaticRoutes = (router, isRoot = true) => {
   const routes = [];
   const layout = router.layout;
   const LayoutToRender = layout.render;
@@ -317,6 +376,12 @@ const generateStaticRoutes = (router) => {
     element: jsx(LayoutToRender, {}),
     children: []
   };
+  if (isRoot) {
+    routes.push({
+      path: "*",
+      element: jsx(NotFoundComponentContainer, { content: router.notFoundComponent })
+    });
+  }
   const pages = router.pages.map((page) => {
     const path = page.path === "/" ? layout.path : page.path;
     return {
@@ -346,7 +411,7 @@ const generateStaticRoutes = (router) => {
   });
   routes.push(route);
   for (const besideRouter of router.routers) {
-    const besidesRoutes = generateStaticRoutes(besideRouter);
+    const besidesRoutes = generateStaticRoutes(besideRouter, false);
     routes.push(...besidesRoutes);
   }
   return routes;

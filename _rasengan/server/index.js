@@ -54,6 +54,7 @@ export default async function handler(req, res) {
         // Create static handler
         let handler = createStaticHandler(staticRoutes);
         // Create fetch request for static routing
+        // @ts-ignore
         let fetchRequest = createFetchRequest(req, host);
         let context = await handler.query(fetchRequest);
         // Handle redirects
@@ -63,11 +64,19 @@ export default async function handler(req, res) {
             if (redirect)
                 return res.redirect(redirect);
         }
+        // Helmet context
+        const helmetContext = {};
         // Create static router
         let router = createStaticRouter(handler.dataRoutes, context);
-        const rendered = await render(router, context);
+        const rendered = await render(router, context, helmetContext);
+        // Get metadata
+        const helmet = helmetContext.helmet;
+        let head = `
+      ${helmet.title.toString()}
+      ${helmet.meta.toString()}
+    `;
         let html = template
-            .replace(`<!--app-head-->`, rendered.head ?? "")
+            .replace(`<!--app-head-->`, head ?? "")
             .replace(`<!--app-html-->`, rendered.html ?? "");
         res
             .status(200)
@@ -80,4 +89,3 @@ export default async function handler(req, res) {
         res.status(500).end(e.stack);
     }
 }
-//# sourceMappingURL=index.js.map

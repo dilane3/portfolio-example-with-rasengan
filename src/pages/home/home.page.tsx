@@ -1,8 +1,11 @@
 import { Link, PageComponent, defineRoutePage } from "rasengan";
 import { useState, useEffect } from "react";
 import Image from "@rasenganjs/image";
+
+import img from "./../../assets/pic3.jpg";
+
 class Home extends PageComponent {
-  render() {
+  render({ name }: any) {
     const [pic, setPic] = useState("");
 
     useEffect(() => {
@@ -39,7 +42,7 @@ class Home extends PageComponent {
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                Dilane Kombou
+                {name}
               </span>
             </div>
           </h1>
@@ -80,7 +83,9 @@ class Home extends PageComponent {
 
           <div className="home-buttons">
             <Link to="/about">
-              <button className="btn">About me</button>
+            <button className="btn">
+              About me
+            </button>
             </Link>
 
             <Link to="/contact">
@@ -112,7 +117,7 @@ class Home extends PageComponent {
   async loader() {
     return {
       props: {
-        name: "Dilane3",
+        name: "Dilane Kombou",
       },
     };
   }
