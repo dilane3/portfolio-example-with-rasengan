@@ -1,4 +1,27 @@
-import { PageComponent, defineRoutePage } from "rasengan";
+import { Metadata, PageComponent, defineRoutePage } from "rasengan";
+
+const metadata: Array<Metadata> = [
+  {
+    property: "og:type",
+    content: "website",
+  },
+  {
+    property: "og:url",
+    content: "https://portfolio-dev-dilane3.vercel.app/",
+  },
+  {
+    property: "og:image",
+    content: "https://picsum.photos/seed/20/1200/630",
+  },
+  {
+    property: "og:image:width",
+    content: "1200",
+  },
+  {
+    property: "og:image:height",
+    content: "630",
+  }
+];
 
 class Project extends PageComponent {
   render() {
@@ -32,4 +55,5 @@ export default defineRoutePage({
   path: "projects",
   title: "Project",
   description: "Project page",
+  metadata,
 })(Project);

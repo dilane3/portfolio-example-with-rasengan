@@ -9,61 +9,6 @@ import {
 } from "rasengan";
 import "@/pages/layout.css";
 
-const metadata: Array<Metadata> = [
-  {
-    rel: "icon",
-    href: "/rasengan.png",
-    sizes: "32x32"
-  },
-  {
-    property: "og:title",
-    content: "Home Title",
-  },
-  {
-    property: "og:description",
-    content: "Home page desc.",
-  },
-  {
-    property: "og:type",
-    content: "website",
-  },
-  {
-    property: "og:url",
-    content: "https://portfolio-dev-dilane3.vercel.app/",
-  },
-  {
-    property: "og:image",
-    content: "https://portfolio-dev-dilane3.vercel.app/og.jpg",
-  },
-  {
-    property: "og:image:width",
-    content: "1200",
-  },
-  {
-    property: "og:image:height",
-    content: "630",
-  },
-  {
-    property: "twitter:card",
-    content: "summary_large_image",
-  },
-  {
-    property: "twitter:url",
-    content: "https://portfolio-dev-dilane3.vercel.app/",
-  },
-  {
-    property: "twitter:image",
-    content: "https://portfolio-dev-dilane3.vercel.app/og.jpg",
-  },
-  {
-    property: "twitter:image:width",
-    content: "1200",
-  },
-  {
-    property: "twitter:image:height",
-    content: "630",
-  },
-];
 
 class AppLayout extends LayoutComponent {
   render({ name }: any) {
@@ -162,5 +107,4 @@ class AppLayout extends LayoutComponent {
 
 export default defineRouteLayout({
   path: "/",
-  metadata
 })(AppLayout);

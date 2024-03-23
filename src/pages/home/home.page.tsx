@@ -1,12 +1,30 @@
-import { Link, PageComponent, defineRoutePage, Route, useSearchParams, useLocation } from "rasengan";
+import { Link, PageComponent, defineRoutePage, Route, useSearchParams, useLocation, Metadata } from "rasengan";
 import { useState, useEffect } from "react";
 import Image from "@rasenganjs/image";
 
-// @Route({
-//   path: "/",
-//   title: "Home",
-//   description: "Home page",
-// })
+const metadata: Array<Metadata> = [
+  {
+    property: "og:type",
+    content: "website",
+  },
+  {
+    property: "og:url",
+    content: "https://portfolio-dev-dilane3.vercel.app/",
+  },
+  {
+    property: "og:image",
+    content: "https://picsum.photos/seed/2/1200/630",
+  },
+  {
+    property: "og:image:width",
+    content: "1200",
+  },
+  {
+    property: "og:image:height",
+    content: "630",
+  }
+];
+
 class Home extends PageComponent {
   render({ name }: any) {
     const [pic, setPic] = useState("");
@@ -154,6 +172,7 @@ class Home extends PageComponent {
 
 export default defineRoutePage({
   path: "/edit?",
-  title: "Home Ti",
-  description: "Home page",
+  title: "Dilane 3 Portfolio",
+  description: "Software Engineer, Javascript developer",
+  metadata,
 })(Home);

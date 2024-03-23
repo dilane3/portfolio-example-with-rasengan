@@ -1,4 +1,27 @@
-import { PageComponent, defineRoutePage } from "rasengan";
+import { Metadata, PageComponent, defineRoutePage } from "rasengan";
+
+const metadata: Array<Metadata> = [
+  {
+    property: "og:type",
+    content: "website",
+  },
+  {
+    property: "og:url",
+    content: "https://portfolio-dev-dilane3.vercel.app/",
+  },
+  {
+    property: "og:image",
+    content: "https://picsum.photos/seed/12/1200/630",
+  },
+  {
+    property: "og:image:width",
+    content: "1200",
+  },
+  {
+    property: "og:image:height",
+    content: "630",
+  }
+];
 
 class Experience extends PageComponent {
   render() {
@@ -15,6 +38,7 @@ class Experience extends PageComponent {
 
 export default defineRoutePage({
   path: "experiences/:id(yo|yo2)?",
-  // title: "Experiences",
+  title: "Experiences",
   description: "Experiences page",
+  metadata,
 })(Experience);
