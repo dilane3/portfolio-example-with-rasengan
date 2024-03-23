@@ -11,11 +11,11 @@ import "@/pages/layout.css";
 const metadata = [
   {
     property: "og:title",
-    content: "Home",
+    content: "Home Title",
   },
   {
     property: "og:description",
-    content: "Home page",
+    content: "Home page desc.",
   },
   {
     property: "og:type",
@@ -27,7 +27,7 @@ const metadata = [
   },
   {
     property: "og:image",
-    content: "https://picsum.photos/seed/10/1200/630",
+    content: "/og.jpg",
   },
   {
     property: "og:image:width",
@@ -47,7 +47,7 @@ const metadata = [
   },
   {
     property: "twitter:image",
-    content: "https://picsum.photos/seed/1/1200/630",
+    content: "/og.jpg",
   },
   {
     property: "twitter:image:width",
