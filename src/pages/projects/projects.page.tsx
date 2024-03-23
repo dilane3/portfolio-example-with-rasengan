@@ -1,4 +1,4 @@
-import { LoaderOptions, PageComponent, defineRoutePage } from "rasengan";
+import { PageComponent, defineRoutePage } from "rasengan";
 
 class Project extends PageComponent {
   render() {

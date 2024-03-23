@@ -2,9 +2,6 @@
   "index.html": [
     "/assets/notpagefound-zvwRbyPd.png"
   ],
-  "node_modules/@rasenganjs/hooks/lib/hooks/useInterval.js": [
-    "/assets/notpagefound-zvwRbyPd.png"
-  ],
   "node_modules/@rasenganjs/image/lib/components/image.js": [
     "/assets/notpagefound-zvwRbyPd.png"
   ],
@@ -17,19 +14,7 @@
   "node_modules/@remix-run/router/dist/router.js": [
     "/assets/notpagefound-zvwRbyPd.png"
   ],
-  "node_modules/object-assign/index.js": [
-    "/assets/notpagefound-zvwRbyPd.png"
-  ],
-  "node_modules/prop-types/factoryWithThrowingShims.js": [
-    "/assets/notpagefound-zvwRbyPd.png"
-  ],
-  "node_modules/prop-types/index.js": [
-    "/assets/notpagefound-zvwRbyPd.png"
-  ],
-  "node_modules/prop-types/lib/ReactPropTypesSecret.js": [
-    "/assets/notpagefound-zvwRbyPd.png"
-  ],
-  "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan/projects/portfolio/node_modules/prop-types/index.js?commonjs-module": [
+  "node_modules/invariant/browser.js": [
     "/assets/notpagefound-zvwRbyPd.png"
   ],
   "node_modules/rasengan/\u0000/home/dilane3/projects/Rasengan/projects/portfolio/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [
@@ -101,16 +86,13 @@
   "node_modules/react-fast-compare/index.js": [
     "/assets/notpagefound-zvwRbyPd.png"
   ],
-  "node_modules/react-helmet/es/Helmet.js": [
+  "node_modules/react-helmet-async/lib/index.esm.js": [
     "/assets/notpagefound-zvwRbyPd.png"
   ],
   "node_modules/react-router-dom/dist/index.js": [
     "/assets/notpagefound-zvwRbyPd.png"
   ],
   "node_modules/react-router/dist/index.js": [
-    "/assets/notpagefound-zvwRbyPd.png"
-  ],
-  "node_modules/react-side-effect/lib/index.js": [
     "/assets/notpagefound-zvwRbyPd.png"
   ],
   "node_modules/react/cjs/react-jsx-runtime.production.min.js": [
@@ -129,6 +111,9 @@
     "/assets/notpagefound-zvwRbyPd.png"
   ],
   "node_modules/scheduler/index.js": [
+    "/assets/notpagefound-zvwRbyPd.png"
+  ],
+  "node_modules/shallowequal/index.js": [
     "/assets/notpagefound-zvwRbyPd.png"
   ],
   "rasengan.config.js": [
@@ -166,9 +151,6 @@
     "/assets/notpagefound-zvwRbyPd.png"
   ],
   "src/pages/layout.css": [
-    "/assets/notpagefound-zvwRbyPd.png"
-  ],
-  "src/pages/loader.tsx": [
     "/assets/notpagefound-zvwRbyPd.png"
   ],
   "src/pages/notFound.tsx": [

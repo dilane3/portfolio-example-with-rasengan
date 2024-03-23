@@ -14,7 +14,7 @@ class Experience extends PageComponent {
 }
 
 export default defineRoutePage({
-  path: "experiences",
-  title: "Experiences",
+  path: "experiences/:id(yo|yo2)?",
+  // title: "Experiences",
   description: "Experiences page",
 })(Experience);

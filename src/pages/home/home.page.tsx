@@ -1,12 +1,41 @@
-import { Link, PageComponent, defineRoutePage } from "rasengan";
+import { Link, PageComponent, defineRoutePage, Route, useSearchParams, useLocation } from "rasengan";
 import { useState, useEffect } from "react";
 import Image from "@rasenganjs/image";
 
-import img from "./../../assets/pic3.jpg";
-
+// @Route({
+//   path: "/",
+//   title: "Home",
+//   description: "Home page",
+// })
 class Home extends PageComponent {
   render({ name }: any) {
     const [pic, setPic] = useState("");
+
+    const location = useLocation();
+    const res = useSearchParams();
+
+    console.log({ location, res })
+
+    const handleCalculate = () => {
+      const worker = new Worker(new URL("./worker.js", import.meta.url), {
+        type: "module",
+      });
+
+      // console.log("Calculating...");
+      // let sum = 0;
+
+      // for (let i = 0; i < 10000000000; i++) {
+      //   for (let j = 0; j < 10000000000; j++) {
+      //     sum += i + j;
+      //   }
+      // }
+
+      worker.postMessage("start");
+
+      worker.onmessage = (e) => {
+        console.log(e.data);
+      };
+    };
 
     useEffect(() => {
       const loadImage = async () => {
@@ -23,7 +52,7 @@ class Home extends PageComponent {
       };
 
       if (!pic) loadImage();
-    }, [pic]);
+    }, []);
 
     return (
       <div className="home">
@@ -82,13 +111,13 @@ class Home extends PageComponent {
           </p>
 
           <div className="home-buttons">
-            <Link to="/about">
-            <button className="btn">
+            {/* <Link to="/about"> */}
+            <button className="btn" onClick={handleCalculate}>
               About me
             </button>
-            </Link>
+            {/* </Link> */}
 
-            <Link to="/contact">
+            <Link to="/contact" state={{ name: "yoooo" }} preventScrollReset>
               <button className="btn">Contact me</button>
             </Link>
           </div>
@@ -124,7 +153,7 @@ class Home extends PageComponent {
 }
 
 export default defineRoutePage({
-  path: "/",
-  title: "Home",
+  path: "/edit?",
+  // title: "Home Title",
   description: "Home page",
 })(Home);

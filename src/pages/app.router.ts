@@ -1,11 +1,12 @@
 import { RouterComponent, defineRouter } from "rasengan";
-import Home from "./home/home.page";
-import AppLayout from "./app.layout";
-import Contact from "./contact/contact.page";
-import About from "./about/about.page";
-import Projects from "./projects/projects.page";
-import Experiences from "./experiences/experiences.page";
+import Home from "@pages/home/home.page";
+import AppLayout from "@/pages/app.layout";
+import Contact from "@pages/contact/contact.page";
+import About from "@pages/about/about.page";
+import Projects from "@pages/projects/projects.page";
+import Experiences from "@pages/experiences/experiences.page";
 import NotFoundPage from "./notFound";
+
 
 class AppRouter extends RouterComponent {}
 

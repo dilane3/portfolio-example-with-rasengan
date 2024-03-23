@@ -1,14 +1,66 @@
 import {
   LayoutComponent,
   Link,
+  LoaderOptions,
   Outlet,
   defineRouteLayout,
   useLocation,
 } from "rasengan";
-import "./layout.css";
+import "@/pages/layout.css";
+
+const metadata = [
+  {
+    property: "og:title",
+    content: "Home",
+  },
+  {
+    property: "og:description",
+    content: "Home page",
+  },
+  {
+    property: "og:type",
+    content: "website",
+  },
+  {
+    property: "og:url",
+    content: "https://portfolio-dev-dilane3.vercel.app/",
+  },
+  {
+    property: "og:image",
+    content: "https://picsum.photos/seed/10/1200/630",
+  },
+  {
+    property: "og:image:width",
+    content: "1200",
+  },
+  {
+    property: "og:image:height",
+    content: "630",
+  },
+  {
+    property: "twitter:card",
+    content: "summary_large_image",
+  },
+  {
+    property: "twitter:url",
+    content: "https://portfolio-dev-dilane3.vercel.app/",
+  },
+  {
+    property: "twitter:image",
+    content: "https://picsum.photos/seed/1/1200/630",
+  },
+  {
+    property: "twitter:image:width",
+    content: "1200",
+  },
+  {
+    property: "twitter:image:height",
+    content: "630",
+  },
+];
 
 class AppLayout extends LayoutComponent {
-  render() {
+  render({ name }: any) {
     // Get the current route
     const location = useLocation();
 
@@ -18,10 +70,15 @@ class AppLayout extends LayoutComponent {
     const handleActiveLink = (activePath: string) =>
       path === activePath ? "var(--primary)" : "#333";
 
+
+    console.log({ layoutName: name })
+
     return (
       <section className="layout-container">
         <header>
-          <span className="logo">D3 - Porfolio</span>
+          <Link to="#footer">
+            <span className="logo">D3 - Porfolio</span>
+          </Link>
 
           <nav className="nav">
             <ul>
@@ -66,7 +123,7 @@ class AppLayout extends LayoutComponent {
           <Outlet />
         </section>
 
-        <footer>
+        <footer id="footer">
           <p>
             Made with <span className="heart">❤</span> by{" "}
             <a
@@ -87,8 +144,17 @@ class AppLayout extends LayoutComponent {
       </section>
     );
   }
+
+  async loader(_options: LoaderOptions) {
+    return {
+      props: {
+        name: "D3",
+      }
+    }
+  }
 }
 
 export default defineRouteLayout({
   path: "/",
+  metadata
 })(AppLayout);

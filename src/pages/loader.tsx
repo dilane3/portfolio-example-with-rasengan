@@ -11,6 +11,6 @@ export default function Loader() {
       justifyContent: "center",
       alignItems: "center",
       color: "white"
-    }}>Hi, it's D3...</div>
+    }}>Hi, it&apos;s D3...</div>
   )
 }

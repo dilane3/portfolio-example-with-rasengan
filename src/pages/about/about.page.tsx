@@ -1,4 +1,4 @@
-import { LoaderResponse, PageComponent, defineRoutePage } from "rasengan";
+import { PageComponent, defineRoutePage } from "rasengan";
 
 class About extends PageComponent {
   render() {
@@ -6,13 +6,13 @@ class About extends PageComponent {
       <div>
         <h1 className="title">About</h1>
         <p className="description">
-          My name is Dilane Kombou, I'm a FullStack Javascript Developer. I love
-          to build things with React and Nodejs and I'm also a big fan of
+          My name is Dilane Kombou, I&apos;m a FullStack Javascript Developer. I love
+          to build things with React and Nodejs and I&apos;m also a big fan of
           Blender and 3D in general.
         </p>
 
         <p className="description">
-          I'm currently working at{" "}
+          I&apos;m currently working at{" "}
           <a
             href="https://www.ubisoft.com/en-US/studio/paris.aspx"
             target="_blank"

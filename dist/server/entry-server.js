@@ -6,25 +6,24 @@ var __publicField = (obj, key, value) => {
 };
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import * as React from "react";
-import React__default, { useState, useEffect } from "react";
+import React__default, { useState, useEffect, Suspense } from "react";
 import ReactDOMServer from "react-dom/server";
-import { defineRoutePage, PageComponent, Link, defineRouteLayout, LayoutComponent, useLocation, Outlet, useNavigate, defineRouter, RouterComponent, defineConfig } from "rasengan";
+import { defineRoutePage, PageComponent, Link, defineRouteLayout, LayoutComponent, useLocation, Outlet, useParams, useSearchParams, useNavigate, defineRouter, RouterComponent, defineConfig } from "rasengan";
 import Image from "@rasenganjs/image";
-import { useInterval } from "@rasenganjs/hooks";
-import { useRouteError } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import * as pkg from "react-helmet-async";
 import { StaticRouterProvider } from "react-router-dom/server.js";
 class Home extends PageComponent {
   render({ name }) {
     const [pic, setPic] = useState("");
-    const [count, setCount] = useState(0);
-    useInterval(
-      () => {
-        setCount((prev) => prev + 1);
-      },
-      1e3,
-      [count]
-    );
+    const handleCalculate = () => {
+      const worker = new Worker(new URL("./worker.js", import.meta.url), {
+        type: "module"
+      });
+      worker.postMessage("start");
+      worker.onmessage = (e) => {
+        console.log(e.data);
+      };
+    };
     useEffect(() => {
       const loadImage = async () => {
         try {
@@ -102,7 +101,7 @@ class Home extends PageComponent {
           "and 3D in general."
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "home-buttons", children: [
-          /* @__PURE__ */ jsx(Link, { to: "/about", children: /* @__PURE__ */ jsx("button", { className: "btn", children: "About me" }) }),
+          /* @__PURE__ */ jsx("button", { className: "btn", onClick: handleCalculate, children: "About me" }),
           /* @__PURE__ */ jsx(Link, { to: "/contact", children: /* @__PURE__ */ jsx("button", { className: "btn", children: "Contact me" }) })
         ] })
       ] }),
@@ -127,7 +126,7 @@ class Home extends PageComponent {
   async loader() {
     return {
       props: {
-        name: "Dilane pablo"
+        name: "Dilane Kombou"
       }
     };
   }
@@ -217,16 +216,21 @@ class About extends PageComponent {
       /* @__PURE__ */ jsx("h1", { className: "title", children: "About" }),
       /* @__PURE__ */ jsx("p", { className: "description", children: "My name is Dilane Kombou, I'm a FullStack Javascript Developer. I love to build things with React and Nodejs and I'm also a big fan of Blender and 3D in general." }),
       /* @__PURE__ */ jsxs("p", { className: "description", children: [
-        "I'm currently working at ",
-        /* @__PURE__ */ jsx("a", { href: "https://www.ubisoft.com/en-US/studio/paris.aspx", target: "_blank", rel: "noopener noreferrer", children: "DrawSoft" }),
-        " as a FullStack Javascript Developer and 3D character artist modeling."
+        "I'm currently working at",
+        " ",
+        /* @__PURE__ */ jsx(
+          "a",
+          {
+            href: "https://www.ubisoft.com/en-US/studio/paris.aspx",
+            target: "_blank",
+            rel: "noopener noreferrer",
+            children: "DrawSoft"
+          }
+        ),
+        " ",
+        "as a FullStack Javascript Developer and 3D character artist modeling."
       ] })
     ] });
-  }
-  async loader() {
-    return {
-      redirect: "/projects"
-    };
   }
 }
 const About$1 = defineRoutePage({
@@ -249,6 +253,9 @@ const Projects = defineRoutePage({
 })(Project);
 class Experience extends PageComponent {
   render() {
+    const params = useParams();
+    const searchs = useSearchParams();
+    console.log({ params, searchs });
     return /* @__PURE__ */ jsxs("div", { children: [
       /* @__PURE__ */ jsx("h1", { className: "title", children: "Experiences" }),
       /* @__PURE__ */ jsx("p", { className: "description", children: "Concerning my experiences, I have worked for several companies, here are some of them." })
@@ -256,24 +263,10 @@ class Experience extends PageComponent {
   }
 }
 const Experiences = defineRoutePage({
-  path: "experiences",
+  path: "experiences/:id(yo|yo2)?",
   title: "Experiences",
   description: "Experiences page"
 })(Experience);
-function Loader() {
-  return /* @__PURE__ */ jsx("div", { style: {
-    position: "fixed",
-    backgroundColor: "var(--primary)",
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    color: "white"
-  }, children: "Hi, it's D3..." });
-}
 const notfoundImg = "/assets/notpagefound-zvwRbyPd.png";
 function NotFoundPage() {
   const navigate = useNavigate();
@@ -312,15 +305,15 @@ const AppRouter$1 = defineRouter({
   imports: [],
   layout: AppLayout$1,
   pages: [Home$1, Contact$1, About$1, Projects, Experiences],
-  loaderComponent: Loader,
   notFoundComponent: NotFoundPage
 })(AppRouter);
+const { Helmet } = pkg.default || pkg;
 const PageToRender = ({ page, data }) => {
   const Page = page.render;
   const props = data.props || {};
   return jsxs(React.Fragment, { children: [jsxs(Helmet, { children: [jsx("title", { children: page.title }), jsx("meta", { name: "description", content: page.description })] }), jsx(Page, { ...props })] });
 };
-let ErrorBoundary$1 = class ErrorBoundary extends React.Component {
+class ErrorBoundary extends React.Component {
   constructor() {
     super(...arguments);
     __publicField(this, "state", { hasError: false, error: null, info: null });
@@ -335,7 +328,7 @@ let ErrorBoundary$1 = class ErrorBoundary extends React.Component {
     }
     return this.props.children;
   }
-};
+}
 const ErrorFallbackComponent = ({ error, info }) => {
   console.log({ error, info });
   return jsx("div", { style: {
@@ -344,7 +337,7 @@ const ErrorFallbackComponent = ({ error, info }) => {
     padding: "40px",
     backgroundColor: "#fff"
   }, children: jsxs("div", { children: [jsx("h1", { style: { fontSize: "2rem" }, children: "Something went wrong" }), jsx("p", { children: error.toString() }), jsx("div", { style: {
-    width: "calc(100% - 40px)",
+    width: "100%",
     height: "auto",
     borderRadius: 10,
     padding: "20px",
@@ -352,16 +345,11 @@ const ErrorFallbackComponent = ({ error, info }) => {
     backgroundColor: "#f0f0f0"
   }, children: jsx("p", { children: info.componentStack }) })] }) });
 };
-function ErrorBoundary2() {
-  let error = useRouteError();
-  console.error(error);
-  return jsx("div", { children: "Dang!" });
-}
-const ServerComponent = ({ page }) => {
+const ServerComponent = ({ page, loader }) => {
   const data = {
     props: {}
   };
-  return jsx(PageToRender, { page, data });
+  return jsx(Suspense, { fallback: loader, children: jsx(PageToRender, { page, data }) });
 };
 const NotFoundComponentContainer = ({ content }) => {
   return jsx(Fragment, { children: content({}) });
@@ -372,7 +360,7 @@ const generateStaticRoutes = (router, isRoot = true) => {
   const LayoutToRender = layout.render;
   const route = {
     path: layout.path,
-    elementError: jsx(ErrorBoundary2, {}),
+    elementError: jsx(ErrorBoundary, {}),
     element: jsx(LayoutToRender, {}),
     children: []
   };
@@ -401,9 +389,9 @@ const generateStaticRoutes = (router, isRoot = true) => {
         return response;
       },
       Component() {
-        return jsx(ServerComponent, { page });
+        return jsx(ServerComponent, { page, loader: router.loaderComponent({}) });
       },
-      elementError: jsx(ErrorBoundary2, {})
+      elementError: jsx(ErrorBoundary, {})
     };
   });
   pages.forEach((page) => {
@@ -426,10 +414,21 @@ const config = defineConfig({
     production: {
       hosting: "vercel"
     }
+  },
+  vite: {
+    resolve: {
+      alias: [
+        {
+          find: "@pages",
+          replacement: "src/pages"
+        }
+      ]
+    }
   }
 });
-function render(router, context) {
-  const html = ReactDOMServer.renderToString(config.reactStrictMode ? jsx(React__default.StrictMode, { children: jsx(ErrorBoundary$1, { children: jsx(StaticRouterProvider, { router, context }) }) }) : jsx(ErrorBoundary$1, { children: jsx(StaticRouterProvider, { router, context }) }));
+const { HelmetProvider } = pkg.default || pkg;
+function render(router, context, helmetContext = {}) {
+  const html = ReactDOMServer.renderToString(config.reactStrictMode ? jsx(React__default.StrictMode, { children: jsx(ErrorBoundary, { children: jsx(HelmetProvider, { context: helmetContext, children: jsx(StaticRouterProvider, { router, context }) }) }) }) : jsx(ErrorBoundary, { children: jsx(HelmetProvider, { context: helmetContext, children: jsx(StaticRouterProvider, { router, context }) }) }));
   return { html };
 }
 const staticRoutes = generateStaticRoutes(AppRouter$1);
