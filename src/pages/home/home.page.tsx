@@ -2,28 +2,6 @@ import { Link, PageComponent, defineRoutePage, Route, useSearchParams, useLocati
 import { useState, useEffect } from "react";
 import Image from "@rasenganjs/image";
 
-const metadata: Array<Metadata> = [
-  {
-    property: "og:type",
-    content: "website",
-  },
-  {
-    property: "og:url",
-    content: "https://portfolio-dev-dilane3.vercel.app/",
-  },
-  {
-    property: "og:image",
-    content: "https://picsum.photos/seed/2/1200/630",
-  },
-  {
-    property: "og:image:width",
-    content: "1200",
-  },
-  {
-    property: "og:image:height",
-    content: "630",
-  }
-];
 
 class Home extends PageComponent {
   render({ name }: any) {
@@ -170,8 +148,57 @@ class Home extends PageComponent {
   }
 }
 
+const metadata: Array<Metadata> = [
+  {
+    property: "og:type",
+    content: "website",
+  },
+  {
+    property: "og:url",
+    content: "https://portfolio-dev-dilane3.vercel.app/",
+  },
+  {
+    property: "og:image",
+    content: "https://picsum.photos/seed/2/1200/630",
+  },
+  {
+    property: "og:image:width",
+    content: "1200",
+  },
+  {
+    property: "og:image:height",
+    content: "630",
+  },
+
+  // for twitter 
+  {
+    name: "twitter:card",
+    content: "summary_large_image",
+  },
+  {
+    name: "twitter:site",
+    content: "@dilane3",
+  },
+  {
+    name: "twitter:creator",
+    content: "@dilane3",
+  },
+  {
+    name: "twitter:title",
+    content: "Dilane 3 Portfolio",
+  },
+  {
+    name: "twitter:description",
+    content: "Software Engineer, Javascript developer",
+  },
+  {
+    name: "twitter:image",
+    content: "https://picsum.photos/seed/2/1200/630",
+  },
+];
+
 export default defineRoutePage({
-  path: "/edit?",
+  path: "/",
   title: "Dilane 3 Portfolio",
   description: "Software Engineer, Javascript developer",
   metadata,
