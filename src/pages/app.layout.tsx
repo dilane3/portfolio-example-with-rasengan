@@ -27,7 +27,7 @@ const metadata = [
   },
   {
     property: "og:image",
-    content: "/og.jpg",
+    content: "https://portfolio-dev-dilane3.vercel.app/og.jpg",
   },
   {
     property: "og:image:width",
@@ -47,7 +47,7 @@ const metadata = [
   },
   {
     property: "twitter:image",
-    content: "/og.jpg",
+    content: "https://portfolio-dev-dilane3.vercel.app/og.jpg",
   },
   {
     property: "twitter:image:width",

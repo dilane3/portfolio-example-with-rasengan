@@ -154,6 +154,6 @@ class Home extends PageComponent {
 
 export default defineRoutePage({
   path: "/edit?",
-  // title: "Home Title",
+  title: "Home Ti",
   description: "Home page",
 })(Home);
