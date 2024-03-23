@@ -170,6 +170,10 @@ const metadata: Array<Metadata> = [
     content: "https://picsum.photos/seed/2/1200/630",
   },
   {
+    name: "twitter:title",
+    content: "Dilane 3 Portfolio",
+  },
+  {
     property: "og:image:width",
     content: "1200",
   },
