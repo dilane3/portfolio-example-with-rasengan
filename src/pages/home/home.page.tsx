@@ -150,6 +150,10 @@ class Home extends PageComponent {
 
 const metadata: Array<Metadata> = [
   {
+    name: "twitter:card",
+    content: "summary_large_image",
+  },
+  {
     property: "og:type",
     content: "website",
   },
@@ -162,38 +166,16 @@ const metadata: Array<Metadata> = [
     content: "https://picsum.photos/seed/2/1200/630",
   },
   {
+    name: "twitter:image",
+    content: "https://picsum.photos/seed/2/1200/630",
+  },
+  {
     property: "og:image:width",
     content: "1200",
   },
   {
     property: "og:image:height",
     content: "630",
-  },
-
-  // for twitter 
-  {
-    name: "twitter:card",
-    content: "summary_large_image",
-  },
-  {
-    name: "twitter:site",
-    content: "@dilane3",
-  },
-  {
-    name: "twitter:creator",
-    content: "@dilane3",
-  },
-  {
-    name: "twitter:title",
-    content: "Dilane 3 Portfolio",
-  },
-  {
-    name: "twitter:description",
-    content: "Software Engineer, Javascript developer",
-  },
-  {
-    name: "twitter:image",
-    content: "https://picsum.photos/seed/2/1200/630",
   },
 ];
 
