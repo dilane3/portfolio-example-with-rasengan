@@ -5,10 +5,16 @@ import {
   Outlet,
   defineRouteLayout,
   useLocation,
+  type Metadata
 } from "rasengan";
 import "@/pages/layout.css";
 
-const metadata = [
+const metadata: Array<Metadata> = [
+  {
+    rel: "icon",
+    href: "/rasengan.png",
+    sizes: "32x32"
+  },
   {
     property: "og:title",
     content: "Home Title",
