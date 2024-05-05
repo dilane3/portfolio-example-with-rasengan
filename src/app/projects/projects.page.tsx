@@ -1,27 +1,36 @@
 import { Metadata, PageComponent, defineRoutePage } from "rasengan";
 
-const metadata: Array<Metadata> = [
-  {
-    property: "og:type",
-    content: "website",
+const metadata: Metadata = {
+  openGraph: {
+    type: "website",
+    title: "Projects",
+    description: "Software Engineer, Javascript developer",
+    url: "https://dilane3.vercel.app/",
+    image: "https://picsum.photos/seed/4/400/600",
+    width: "400",
+    height: "600",
   },
-  {
-    property: "og:url",
-    content: "https://portfolio-dev-dilane3.vercel.app/",
+  twitter: {
+    card: "summary_large_image",
+    image: "https://picsum.photos/seed/6/400/600",
+    title: "Projects",
+    description: "Software Engineer, Javascript developer",
+    creator: "@dilane3",
+    site: "@dilane3",
   },
-  {
-    property: "og:image",
-    content: "https://picsum.photos/seed/20/1200/630",
-  },
-  {
-    property: "og:image:width",
-    content: "1200",
-  },
-  {
-    property: "og:image:height",
-    content: "630",
-  }
-];
+  links: [
+    {
+      rel: "icon",
+      href: "/rasengan.png",
+    },
+  ],
+  metadataTags: [
+    {
+      name: "description",
+      content: "Software Engineer, Javascript developer",
+    },
+  ],
+};
 
 class Project extends PageComponent {
   render() {

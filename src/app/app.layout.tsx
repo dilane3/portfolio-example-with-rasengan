@@ -5,10 +5,9 @@ import {
   Outlet,
   defineRouteLayout,
   useLocation,
-  type Metadata
+  type Metadata,
 } from "rasengan";
-import "@/pages/layout.css";
-
+import "@/app/layout.scss";
 
 class AppLayout extends LayoutComponent {
   render({ name }: any) {
@@ -21,8 +20,7 @@ class AppLayout extends LayoutComponent {
     const handleActiveLink = (activePath: string) =>
       path === activePath ? "var(--primary)" : "#333";
 
-
-    console.log({ layoutName: name })
+    console.log({ layoutName: name });
 
     return (
       <section className="layout-container">
@@ -100,8 +98,8 @@ class AppLayout extends LayoutComponent {
     return {
       props: {
         name: "D3",
-      }
-    }
+      },
+    };
   }
 }
 

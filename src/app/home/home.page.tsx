@@ -2,9 +2,11 @@ import { Link, PageComponent, defineRoutePage, Route, useSearchParams, useLocati
 import { useState, useEffect } from "react";
 import Image from "@rasenganjs/image";
 
+const env = import.meta.env
 
 class Home extends PageComponent {
   render({ name }: any) {
+    console.log(env)
     const [pic, setPic] = useState("");
 
     const location = useLocation();
@@ -114,7 +116,7 @@ class Home extends PageComponent {
             {/* </Link> */}
 
             <Link to="/contact" state={{ name: "yoooo" }} preventScrollReset>
-              <button className="btn">Contact me</button>
+              <button className="btn">Contact me 2</button>
             </Link>
           </div>
         </div>
@@ -148,40 +150,37 @@ class Home extends PageComponent {
   }
 }
 
-const metadata: Array<Metadata> = [
-  {
-    name: "twitter:card",
-    content: "summary_large_image",
+const metadata: Metadata = {
+  openGraph: {
+    type: "website",
+    title: "Dilane 3 Portfolio",
+    description: "Software Engineer, Javascript developer",
+    url: "https://dilane3.vercel.app/",
+    image: "https://picsum.photos/seed/4/400/600",
+    width: "400",
+    height: "600",
   },
-  {
-    property: "og:type",
-    content: "website",
+  twitter: {
+    card: "summary_large_image",
+    image: "https://picsum.photos/seed/6/400/600",
+    title: "Dilane 3 Portfolio",
+    description: "Software Engineer, Javascript developer",
+    creator: "@dilane3",
+    site: "@dilane3",
   },
-  {
-    property: "og:url",
-    content: "https://portfolio-dev-dilane3.vercel.app/",
-  },
-  {
-    property: "og:image",
-    content: "https://picsum.photos/seed/2/1200/630",
-  },
-  {
-    name: "twitter:image",
-    content: "https://picsum.photos/seed/2/1200/630",
-  },
-  {
-    name: "twitter:title",
-    content: "Dilane 3 Portfolio",
-  },
-  {
-    property: "og:image:width",
-    content: "1200",
-  },
-  {
-    property: "og:image:height",
-    content: "630",
-  },
-];
+  links: [
+    {
+      rel: "icon",
+      href: "/rasengan.png",
+    },
+  ],
+  metadataTags: [
+    {
+      name: "description",
+      content: "Software Engineer, Javascript developer",
+    },
+  ],
+};
 
 export default defineRoutePage({
   path: "/",

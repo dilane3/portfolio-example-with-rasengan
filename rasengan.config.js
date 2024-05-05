@@ -11,7 +11,7 @@ export default defineConfig({
     },
 
     production: {
-      hosting: "vercel",
+      hosting: "netlify",
     },
   },
 
@@ -28,8 +28,8 @@ export default defineConfig({
     resolve: {
       alias: [
         {
-          find: "@pages",
-          replacement: "src/pages",
+          find: "@app",
+          replacement: "src/app",
         },
       ],
     },

@@ -3,11 +3,7 @@
     "baseUrl": ".",
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
     "experimentalDecorators": true,
@@ -31,61 +27,24 @@
     ],
     /* Rasengan */
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@/assets/*": [
-        "src/assets/*"
-      ],
-      "@/pages/*": [
-        "src/pages/*"
-      ],
-      "@//*": [
-        "src/*"
-      ],
-      "@assets/*": [
-        "assets/*"
-      ],
-      "@pages/*": [
-        "src/pages/*"
-      ],
-      "@src/*": [
-        "src/*"
-      ],
-      "@about/*": [
-        "about/*"
-      ],
-      "@contact/*": [
-        "contact/*"
-      ],
-      "@experiences/*": [
-        "experiences/*"
-      ],
-      "@home/*": [
-        "home/*"
-      ],
-      "@projects/*": [
-        "projects/*"
-      ],
-      "@/about/*": [
-        "src/pages/about/*"
-      ],
-      "@/contact/*": [
-        "src/pages/contact/*"
-      ],
-      "@/experiences/*": [
-        "src/pages/experiences/*"
-      ],
-      "@/home/*": [
-        "src/pages/home/*"
-      ],
-      "@/projects/*": [
-        "src/pages/projects/*"
-      ]
+      "@/*": ["src/*"],
+      "@/assets/*": ["src/assets/*"],
+      "@/app/*": ["src/app/*"],
+      "@//*": ["src/*"],
+      "@assets/*": ["assets/*"],
+      "@app/*": ["src/app/*"],
+      "@src/*": ["src/*"],
+      "@about/*": ["about/*"],
+      "@contact/*": ["contact/*"],
+      "@experiences/*": ["experiences/*"],
+      "@home/*": ["home/*"],
+      "@projects/*": ["projects/*"],
+      "@/about/*": ["src/app/about/*"],
+      "@/contact/*": ["src/app/contact/*"],
+      "@/experiences/*": ["src/app/experiences/*"],
+      "@/home/*": ["src/app/home/*"],
+      "@/projects/*": ["src/app/projects/*"]
     }
   },
-  "include": [
-    "src",
-    "rasengan-env.d.ts"
-, "src/pages/home/worker.js"  ]
+  "include": ["src", "rasengan-env.d.ts", "src/app/home/worker.js"]
 }
